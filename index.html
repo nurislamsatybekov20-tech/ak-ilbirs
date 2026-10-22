@@ -19,188 +19,321 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow-x: hidden;
-            position: relative;
-        }
-        .snow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 10;
+            padding: 20px;
         }
         .container {
-            width: 90%;
-            max-width: 850px;
-            background: rgba(27, 38, 59, 0.85);
+            width: 100%;
+            max-width: 900px;
+            background: rgba(27, 38, 59, 0.9);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            padding: 40px;
+            padding: 30px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             position: relative;
-            z-index: 2;
         }
         .slide {
             display: none;
-            animation: fadeIn 0.6s ease-in-out forwards;
+            animation: fadeIn 0.5s ease-in-out forwards;
         }
         .slide.active {
             display: block;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        .slide-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .slide-content {
+                grid-template-columns: 1fr;
+            }
         }
         h1 {
             color: #77abb7;
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            grid-column: 1 / -1;
         }
         h2 {
             color: #e0e1dd;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
             border-bottom: 2px solid #415a77;
             padding-bottom: 8px;
+            grid-column: 1 / -1;
         }
         p {
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-size: 1rem;
+            line-height: 1.6;
             color: #e0e1dd;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         ul {
             margin-left: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         li {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 8px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+        .img-box {
+            width: 100%;
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 30px;
-            pt-2;
+            margin-top: 25px;
+            padding-top: 15px;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
         button {
             background: #415a77;
             color: #fff;
             border: none;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 1rem;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         button:hover {
             background: #77abb7;
-            transform: translateY(-2px);
         }
         button:disabled {
             background: #2b3a4a;
             color: #6c757d;
             cursor: not-allowed;
-            transform: none;
         }
-        .dots {
-            display: flex;
-            gap: 8px;
-        }
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #415a77;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .dot.active {
-            background: #77abb7;
-            transform: scale(1.3);
+        .slide-num {
+            font-size: 0.9rem;
+            color: #77abb7;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        
         <!-- Слайд 1 -->
         <div class="slide active">
             <h1>❄️ Ак-Ильбирс — Снежный Барс</h1>
-            <h2>Горный символ Кыргызстана</h2>
-            <p><strong>Ак-Ильбирс</strong> (Снежный барс) — легендарный хищник высокогорий Тянь-Шаня и Памира. Это уникальное животное символизирует силу, свободу и красоту природы Кыргызстана.</p>
-            <p>В Кыргызской Республике Ак-Ильбирс признан национальным символом и находится под особой охраной государства.</p>
+            <h2>Хозяин небесных гор</h2>
+            <div class="slide-content">
+                <div>
+                    <p><strong>Ак-Ильбирс</strong> — легендарный хищник высокогорий Тянь-Шаня и Памира.</p>
+                    <p>Это уникальное животное занесено в Красную книгу и является национальным символом Кыргызстана.</p>
+                </div>
+                <div class="img-box">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/811193813234935516_0" alt="Ак-Ильбирс">
+                </div>
+            </div>
         </div>
 
         <!-- Слайд 2 -->
         <div class="slide">
-            <h1>📍 Где обитает Ак-Ильбирс?</h1>
-            <h2>Высокогорные вершины</h2>
-            <p>Снежный барс живет в суровых высокогорных районах на высоте от <strong>3000 до 5000 метров</strong> над уровнем моря.</p>
-            <ul>
-                <li>Основной ареал в КР: хребты Тянь-Шаня, Памиро-Алай, заповедники Сарычат-Эрташ и Нарынский.</li>
-                <li>Его густой дымчато-серый мех с пятнами служит идеальным камуфляжем среди скал и снега.</li>
-            </ul>
+            <h1>🐾 Кто такой ирбис?</h1>
+            <h2>Научный портрет</h2>
+            <div class="slide-content">
+                <div>
+                    <p><strong>Латинское название:</strong> Panthera uncia.</p>
+                    <p>Это единственная крупная кошка, постоянно живущая в условиях сурового высокогорного климата и вечных снегов.</p>
+                </div>
+                <div class="img-box">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/7444598531197677372_0" alt="Ирбис близко">
+                </div>
+            </div>
         </div>
 
         <!-- Слайд 3 -->
         <div class="slide">
-            <h1>🐾 Уникальные особенности</h1>
-            <h2>Мастер высокогорий</h2>
-            <ul>
-                <li><strong>Длинный и пушистый хвост:</strong> Длина хвоста почти равна длине тела (около 1 метра!). Он помогает удерживать равновесие при прыжках и согревает в мороз.</li>
-                <li><strong>Мощные прыжки:</strong> Может прыгать на расстояние до 6–10 метров в длину.</li>
-                <li><strong>Широкие лапы:</strong> Работают как снегоступы, не позволяя барсу проваливаться в глубокий снег.</li>
-            </ul>
+            <h1>❄️ Внешний вид и адаптация</h1>
+            <h2>Создан для холода</h2>
+            <div class="slide-content">
+                <div>
+                    <ul>
+                        <li><strong>Мех:</strong> Очень густой и тёплый, дымчато-серого цвета с тёмными пятнами для маскировки.</li>
+                        <li><strong>Лапы:</strong> Широкие и мохнатые, работают как снегоступы.</li>
+                        <li><strong>Легкие:</strong> Имеет большую грудную клетку для дыхания разряженным горным воздухом.</li>
+                    </ul>
+                </div>
+                <div class="img-box">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/7444598531197677372_0" alt="Адаптация ирбиса">
+                </div>
+            </div>
         </div>
 
         <!-- Слайд 4 -->
         <div class="slide">
-            <h1>⚠️ Защита и Красная книга</h1>
-            <h2>Редкий и уязвимый вид</h2>
-            <p>Ак-Ильбирс занесён в <strong>Красную книгу Кыргызстана</strong> и Международную Красную книгу (МСОП).</p>
-            <p>Главные угрозы для вида:</p>
-            <ul>
-                <li>Браконьерство ради ценного меха.</li>
-                <li>Сокращение естественной кормовой базы (горных козлов и архаров).</li>
-            </ul>
+            <h1>🐆 Секрет уникального хвоста</h1>
+            <h2>Главный инструмент барса</h2>
+            <div class="slide-content">
+                <div>
+                    <p>Длина хвоста составляет почти <strong>1 метр</strong> — это практически длина всего его тела!</p>
+                    <ul>
+                        <li>Служит рулём и балансиром при прыжках по крутым скалам.</li>
+                        <li>В морозные ночи барс укрывает хвостом нос и морду, как теплым шарфом.</li>
+                    </ul>
+                </div>
+                <div class="img-box">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/17076555244064996166_0" alt="Хвост ирбиса">
+                </div>
+            </div>
         </div>
 
         <!-- Слайд 5 -->
         <div class="slide">
-            <h1>🛡️ Охрана в Кыргызстане</h1>
-            <h2>Национальное достояние</h2>
-            <p>В Кыргызстане активно работают программы по сохранению снежного барса:</p>
-            <ul>
-                <li>Создаются особо охраняемые природные территории и заповедники.</li>
-                <li>Используются фотоловушки для отслеживания популяции.</li>
-                <li>Проводятся международные форумы по защите снежного барса.</li>
-            </ul>
+            <h1>🏔️ Где обитает Ак-Ильбирс?</h1>
+            <h2>Высокогорные вершины</h2>
+            <div class="slide-content">
+                <div>
+                    <p>Живёт в 12 странах Центральной Азии на высоте от <strong>1500 до 6000 метров</strong> над уровнем моря.</p>
+                    <p>В Кыргызстане встречается на хребтах Тянь-Шаня, Памиро-Алая, а также в заповедниках Сарычат-Эрташ и Нарынский.</p>
+                </div>
+                <div class="img-box">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/811193813234935516_0" alt="Горы Кыргызстана">
+                </div>
+            </div>
         </div>
 
         <!-- Слайд 6 -->
         <div class="slide">
+            <h1>🥩 Охота и рацион</h1>
+            <h2>Властелин скал</h2>
+            <div class="slide-content">
+                <div>
+                    <p>Основная добыча ирбиса (до 80% рациона) — горные козлы (теке) и архары.</p>
+                    <p>Охотится из засады, неслышно подкрадываясь к жертве сверху и совершая молниеносный бросок.</p>
+                </div>
+                <div class="img-box">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/10805600705267036611_0" alt="Охота ирбиса">
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 7 -->
+        <div class="slide">
+            <h1>🚀 Рекордсмен по прыжкам</h1>
+            <h2>Невероятная ловкость</h2>
+            <div class="slide-content">
+                <div>
+                    <p>Снежный барс — абсолютный рекордсмен среди всех семейств кошачьих по длине прыжка!</p>
+                    <p>Он способен перепрыгнуть ущелье длиной до <strong>10–15 метров</strong> в один прыжок.</p>
+                </div>
+                <div class="img-box">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/14144336056547118727_0" alt="Прыжок ирбиса">
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 8 -->
+        <div class="slide">
+            <h1>🌙 Образ жизни</h1>
+            <h2>Одинокий страж</h2>
+            <div class="slide-content">
+                <div>
+                    <ul>
+                        <li>Ведёт одиночный образ жизни.</li>
+                        <li>Наиболее активен в сумерках и ночью.</li>
+                        <li>Территория одного барса может достигать от 20 до 200 квадратных километров.</li>
+                    </ul>
+                </div>
+                <div class="img-box">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/811193813234935516_0" alt="Образ жизни">
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 9 -->
+        <div class="slide">
+            <h1>🐾 Потомство</h1>
+            <h2>Забота о будущих барсах</h2>
+            <div class="slide-content">
+                <div>
+                    <p>В выводке обычно рождается от 2 до 3 котят.</p>
+                    <p>Мать воспитывает и учит котят охотиться почти до двухлетнего возраста, после чего они начинают самостоятельную жизнь.</p>
+                </div>
+                <div class="img-box">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/13681751047796378603_0" alt="Котята ирбиса">
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 10 -->
+        <div class="slide">
+            <h1>⚠️ Главные угрозы</h1>
+            <h2>Почему он в Красной книге?</h2>
+            <div class="slide-content">
+                <div>
+                    <ul>
+                        <li><strong>Браконьерство:</strong> Незаконная охота ради ценного меха.</li>
+                        <li><strong>Сокращение корма:</strong> Уменьшение численности горных козлов.</li>
+                        <li><strong>Освоение гор:</strong> Деятельность человека вытесняет барса из естественной среды.</li>
+                    </ul>
+                </div>
+                <div class="img-box">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/8650100904710303853_0" alt="Защита природы">
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 11 -->
+        <div class="slide">
+            <h1>🛡️ Защита и сохранение</h1>
+            <h2>Как спасают Ак-Ильбирса?</h2>
+            <div class="slide-content">
+                <div>
+                    <ul>
+                        <li>Установка фотоловушек в заповедниках для мониторинга популяции.</li>
+                        <li>Ужесточение законов и штрафов за браконьерство.</li>
+                        <li>Международные программы по сохранению вида.</li>
+                    </ul>
+                </div>
+                <div class="img-box">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/8650100904710303853_0" alt="Мониторинг барсов">
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 12 -->
+        <div class="slide">
             <h1>🏔️ Заключение</h1>
-            <h2>Сохраним горного духа вместе!</h2>
-            <p>Ак-Ильбирс — это не просто редкое животное, а неотъемлемая часть горного экобаланса и культуры Кыргызстана.</p>
-            <p>Сохранение снежного барса — наша общая ответственность перед будущими поколениями!</p>
-            <p style="text-align: center; margin-top: 20px; font-weight: bold; color: #77abb7;">Спасибо за внимание!</p>
+            <h2>Сохраним символ гор!</h2>
+            <div class="slide-content">
+                <div>
+                    <p>Ак-Ильбирс — это верхушка экологической пирамиды наших гор. Если жив барс — здорова вся природа Кыргызстана!</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: #77abb7;">Спасибо за внимание!</p>
+                </div>
+                <div class="img-box">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/811193813234935516_0" alt="Финал">
+                </div>
+            </div>
         </div>
 
         <!-- Кнопки управления -->
         <div class="controls">
             <button id="prevBtn" onclick="changeSlide(-1)" disabled>Назад</button>
-            <div class="dots" id="dotsContainer"></div>
+            <span class="slide-num" id="slideNum">Слайд 1 из 12</span>
             <button id="nextBtn" onclick="changeSlide(1)">Вперед</button>
         </div>
+
     </div>
 
     <script>
@@ -208,27 +341,14 @@
         const slides = document.querySelectorAll('.slide');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        const dotsContainer = document.getElementById('dotsContainer');
-
-        // Создаем точечки-индикаторы
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-
-        const dots = document.querySelectorAll('.dot');
+        const slideNum = document.getElementById('slideNum');
 
         function updateSlides() {
             slides.forEach((slide, index) => {
                 slide.classList.toggle('active', index === currentSlide);
             });
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
 
+            slideNum.textContent = `Слайд ${currentSlide + 1} из ${slides.length}`;
             prevBtn.disabled = currentSlide === 0;
             nextBtn.disabled = currentSlide === slides.length - 1;
         }
@@ -238,12 +358,6 @@
             updateSlides();
         }
 
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlides();
-        }
-
-        // Управление стрелками на клавиатуре
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
                 changeSlide(1);
@@ -254,3 +368,5 @@
     </script>
 </body>
 </html>
+
+        
